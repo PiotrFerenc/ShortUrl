@@ -1,5 +1,9 @@
 **ShortUr** Twój portal do skracania linków
 
+
+![Peek 2024-04-05 10-58](https://github.com/PiotrFerenc/ShortUrl/assets/30370747/d9207a1f-fe43-4807-975e-252519d31a31)
+
+
 Witaj w ShortUrl, nowoczesnym narzędziu do skracania linków, które pomaga uczynić Twoje linki bardziej zarządzalnymi i estetycznymi. Nasza platforma oferuje szybkie skracanie adresów URL, umożliwiając łatwe dzielenie się nimi w sieci. Dodatkowo, SkrótLink zapewnia dostęp do szczegółowych statystyk odwiedzin Twoich linków, dając Ci wgląd w to, jak odbiorcy angażują się z Twoimi treściami.
 
 **Funkcje**
