@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<form method="post" action="/SaveToken">
+    @if(TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["Error"]
+        </div>
+    }
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="url" aria-label="url" name="url" aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">get</button>
+    </div>
+</form>

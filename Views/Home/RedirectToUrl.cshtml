@@ -1,0 +1,14 @@
+@model dynamic
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<script defer src="http://localhost:3000/script.js" data-website-id="@ViewBag.Id"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    window.location.href = '@ViewBag.Url';
+});
+</script>

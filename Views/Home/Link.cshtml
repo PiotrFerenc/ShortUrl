@@ -1,0 +1,188 @@
+@using ShortUrl.Controllers
+@model Stats
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>Url: @ViewBag.Url.Url</h2>
+<h2>Short url:<a href="/@ViewBag.Url.Token" target="_blank"> @ViewBag.Url.Token</a></h2>
+
+
+
+ 
+
+<div class="container">
+   
+  <div class="row">
+    <div class="col">
+<p>Pages hits: @Model.pageviews.value</p>
+    </div>
+    <div class="col">
+<p>Time spent on the website: @Model.totaltime.value</p>
+    </div>
+    <div class="col">
+<p>Number of unique visitors: @Model.uniques.value</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <canvas id="OS"></canvas>
+    </div>
+    <div class="col">
+      <canvas id="Device"></canvas>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col">
+      <canvas id="Referrer"></canvas>
+    </div>
+    <div class="col">
+      <canvas id="Url"></canvas>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <canvas id="Browser"></canvas>
+    </div>
+    <div class="col">
+      <canvas id="Country"></canvas>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctxOS= document.getElementById('OS');
+
+  new Chart(ctxOS, {
+    type: 'bar',
+    data: {
+      labels: [@Html.Raw(ViewBag.LinkStats.Os.Labels)],
+      datasets: [{
+        label: 'OS',
+        data: [@ViewBag.LinkStats.Os.Values],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+  const ctxDevice = document.getElementById('Device');
+  
+    new Chart(ctxDevice, {
+      type: 'bar',
+      data: {
+        labels: [@Html.Raw(ViewBag.LinkStats.Device.Labels)],
+        datasets: [{
+          label: 'Device',
+          data: [@ViewBag.LinkStats.Device.Values],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+      const ctxReferrer = document.getElementById('Referrer');
+      
+        new Chart(ctxReferrer, {
+          type: 'bar',
+          data: {
+            labels: [@Html.Raw(ViewBag.LinkStats.Referrer.Labels)],
+            datasets: [{
+              label: 'Referrer',
+              data: [@ViewBag.LinkStats.Referrer.Values],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+              const ctxUrl = document.getElementById('Url');
+              
+                new Chart(ctxUrl, {
+                  type: 'bar',
+                  data: {
+                    labels: [@Html.Raw(ViewBag.LinkStats.Url.Labels)],
+                    datasets: [{
+                      label: 'Url',
+                      data: [@ViewBag.LinkStats.Url.Values],
+                      borderWidth: 1
+                    }]
+                  },
+                  options: {
+                    scales: {
+                      y: {
+                        beginAtZero: true
+                      }
+                    }
+                  }
+                });
+                
+                 
+                              const ctxBrowser= document.getElementById('Browser');
+                              
+                                new Chart(ctxBrowser, {
+                                  type: 'bar',
+                                  data: {
+                                    labels: [@Html.Raw(ViewBag.LinkStats.Browser.Labels)],
+                                    datasets: [{
+                                      label: 'Browser',
+                                      data: [@ViewBag.LinkStats.Browser.Values],
+                                      borderWidth: 1
+                                    }]
+                                  },
+                                  options: {
+                                    scales: {
+                                      y: {
+                                        beginAtZero: true
+                                      }
+                                    }
+                                  }
+                                });
+                
+                              const ctxCountry= document.getElementById('Country');
+                              
+                                new Chart(ctxCountry, {
+                                  type: 'bar',
+                                  data: {
+                                    labels: [@Html.Raw(ViewBag.LinkStats.Country.Labels)],
+                                    datasets: [{
+                                      label: 'Country',
+                                      data: [@ViewBag.LinkStats.Country.Values],
+                                      borderWidth: 1
+                                    }]
+                                  },
+                                  options: {
+                                    scales: {
+                                      y: {
+                                        beginAtZero: true
+                                      }
+                                    }
+                                  }
+                                });
+                
+                
+</script>
+
