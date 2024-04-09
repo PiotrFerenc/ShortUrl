@@ -23,20 +23,20 @@ public class HomeController : Controller
             Authenticator = new HttpBasicAuthenticator("admin", "umami")
         };
         var client = new RestClient(options);
-
+     
         var request = new RestRequest("api/auth/login").AddJsonBody(new { Username = "admin", Password = "umami" });
 
         var response = await client.PostAsync<Login>(request, CancellationToken.None);
         if (response == null)
         {
-            return View("Error");
+          return View("Error");
         }
 
         _token = response.Token;
 
         return View();
     }
-
+ 
     [HttpGet("/link/{token}")]
     public async Task<IActionResult> Link([FromRoute] string token)
     {
